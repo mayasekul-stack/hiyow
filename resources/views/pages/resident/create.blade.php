@@ -74,6 +74,14 @@
                                 <label>Catatan</label>
                                 <textarea name="catatan" class="form-control" rows="3"></textarea>
                             </div>
+                                  <div class="card-footer">
+                           <div class="d-flex justify-content-end" style="gap: 10px">
+                            <a href="/resident" class="btn btn-outline-secondary">
+                               Kembali
+                            </a>
+                            <button type="submit" class="btn btn-primary">
+                               Simpan
+                            </div>
                     </div>
                 </div>
             </form>

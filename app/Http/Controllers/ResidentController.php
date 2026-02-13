@@ -39,12 +39,12 @@ class ResidentController extends Controller
             'no_hp' => ['nullable', 'max:15'],
             'tgl_kjgn' => ['required', 'date'],
             'jam_kjgn' => ['required', 'date_format:H:i'],
-            'status' => ['nullable', Rule::in(['menunggu', 'diproses', 'selesai'])],
+            'status' => ['nullable', Rule::in(['belum_diproses', 'diproses', 'selesai'])],
             'petugas' => ['nullable', 'max:100'],
             'catatan' => ['nullable', 'string'],
         ]);
 
-        $validated['status'] = 'menunggu';
+       
 
 
         Resident::create($validated);
