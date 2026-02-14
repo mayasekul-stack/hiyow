@@ -28,7 +28,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-       @include('layouts.sidebar')
+        @include('layouts.sidebar')
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -38,7 +38,7 @@
             <div id="content">
 
                 <!-- Topbar -->
-               @include('layouts.navbar')
+                @include('layouts.navbar')
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
@@ -46,10 +46,8 @@
                     @yield('content')
                     <!-- Page Heading -->
                     
-                  
-                  
-
-                   
+                
+                                    
                 </div>
                 <!-- /.container-fluid -->
 
@@ -57,7 +55,7 @@
             <!-- End of Main Content -->
 
             <!-- Footer -->
-           @include('layouts.footer')
+            @include('layouts.footer')
             <!-- End of Footer -->
 
         </div>
@@ -107,7 +105,7 @@
     <!-- Page level custom scripts -->
     <script src="{{ asset('template/js/demo/chart-area-demo.js') }}"></script>
     <script src="{{ asset('template/js/demo/chart-pie-demo.js') }}"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 
 </html>

@@ -29,7 +29,7 @@
                                                         <th>Aksi</th>
                                             </tr>
                                         </thead>
-                                        @if (count($resident) < 1 ) 
+                                        @if (count($residents) < 1 ) 
                                             <tbody>
                                                 <tr>
                                                   <td colspan="12"> 
@@ -39,32 +39,33 @@
                                             </tbody>
                                         @else
                                         <tbody>
-                                             @foreach ($resident as $item)
-                                                <tr>
-                                                             <td>{{ $item->name }}</td>
-                                                             <td>{{ $item->jenis_tamu }}</td>
-                                                             <td>{{ $item->asal_desa }}</td>
-                                                             <td>{{ $item->asal_instansi }}</td>
-                                                             <td>{{ $item->address }}</td>
-                                                             <td>{{ $item->keperluan }}</td>
-                                                             <td>{{ $item->no_hp }}</td>
-                                                             <td>{{ $item->tgl_kjgn }}</td>
-                                                             <td>{{ $item->jam_kjgn }}</td>
-                                                             <td>{{ $item->petugas }}</td>
-                                                             <td>{{ $item->catatan }}</td>
-                                                             <td>
+                                            @foreach ($residents as $item)
+                                                        <tr>
+                                                            <td>{{ $item->name }}</td>
+                                                            <td>{{ $item->jenis_tamu }}</td>
+                                                            <td>{{ $item->asal_desa }}</td>
+                                                            <td>{{ $item->asal_instansi }}</td>
+                                                            <td>{{ $item->address }}</td>
+                                                            <td>{{ $item->keperluan }}</td>
+                                                            <td>{{ $item->no_hp }}</td>
+                                                            <td>{{ $item->tgl_kjgn }}</td>
+                                                            <td>{{ $item->jam_kjgn }}</td>
+                                                            <td>{{ $item->petugas }}</td>
+                                                            <td>{{ $item->catatan }}</td>
+                                                            <td>
                                                                 <div class="d-flex">
-                                                                    <a href="/resident/{{ $item->id }}" class="d-inline-block 
-                                                                     mr-2 btn btn-sm btn-warning">
+                                                                    <a href="/resident/{{ $item->id }}/edit"class="d-inline-block mr-2 btn btn-sm btn-warning">
                                                                         <i class="fas fa-pen"></i>
                                                                     </a>
-                                                                     <a href="/resident/{{ $item->id }}" class="btn btn-sm btn-danger">
+
+                                                                    <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#confirmationDelete-{{ $item->id }}">
                                                                         <i class="fas fa-eraser"></i>
-                                                                    </a>
+                                                                    </button>
                                                                 </div>
-                                                             </td>
-                                                </tr>
-                                        @endforeach
+                                                            </td>
+                                                        </tr>
+                                                        @include('pages.resident.confirmation-delete')
+                                            @endforeach
                                         @endif
                                         </tbody>
                                     </table>

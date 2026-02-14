@@ -14,7 +14,7 @@ class ResidentController extends Controller
         $residents = Resident::all();
 
         return view('pages.resident.index', [
-            'resident' => $residents,
+            'residents' => $residents,
         ]);
     }
 
@@ -25,32 +25,31 @@ class ResidentController extends Controller
 
     public function store(Request $request)
     {
-        $validated = $request->validate([
+        $validatedData = $request->validate([
             'name' => ['required', 'max:100'],
             'jenis_tamu' => ['required', Rule::in(['warga', 'instansi', 'lainnya'])],
-            'asal_desa' => [ Rule::requiredIf($request->jenis_tamu === 'warga'),
-            'nullable',
-            'max:100'],
-            'asal_instansi' => [Rule::requiredIf($request->jenis_tamu === 'instansi'),
-            'nullable',
-            'max:150'],
+            'asal_desa' => ['required:jenis_tamu,warga', 'nullable', 'string'],
+            'asal_instansi' => ['required:jenis_tamu,instansi', 'nullable', 'string'],
             'address' => ['required', 'max:700'],
-            'keperluan' => ['nullable', 'string', 'max:150'],
-            'no_hp' => ['nullable', 'max:15'],
+            'keperluan' => ['required', 'string', 'max:150'],
+            'no_hp' => ['required', 'max:15'],
             'tgl_kjgn' => ['required', 'date'],
             'jam_kjgn' => ['required', 'date_format:H:i'],
-            'status' => ['nullable', Rule::in(['belum_diproses', 'diproses', 'selesai'])],
-            'petugas' => ['nullable', 'max:100'],
-            'catatan' => ['nullable', 'string'],
+            'status' => ['required', Rule::in(['belum_diproses', 'diproses', 'selesai'])],
+            'petugas' => ['required', 'max:100'],
+            'catatan' => ['required', 'string'],
         ]);
 
-       
+        
 
 
-        Resident::create($validated);
+        // dd($validatedData);
+        Resident::create($validatedData);
 
         return redirect('/resident')->with('success', 'Berhasil Menambahkan data');
     }
+
+    
 
     public function edit($id)
     {
@@ -63,19 +62,34 @@ class ResidentController extends Controller
 
     public function update(Request $request, $id)
     {
-        $validated = $request->validate([
+        // dd($request->all());
+        $validatedData = $request->validate([
             'name' => ['required', 'max:100'],
-            'jenis_tamu' => ['required', Rule::in(['warga', 'instansi', 'lainnya'])],
-        ]);
+            'asal_desa' => ['required'],
+            'asal_instansi' => ['required'],
+            'jenis_tamu' => ['required'],
+            'address' => ['required'],
+            'keperluan' => ['nullable'],
+            'no_hp' => ['nullable'],
+            'tgl_kjgn' => ['required'],
+            'jam_kjgn' => ['required'],
+            'status' => ['required'],
+            'petugas' => ['nullable'],
+            'catatan' => ['nullable'],
+]);
 
-        Resident::findOrFail($id)->update($validated);
+
+// dd($validatedData);
+
+        Resident::findOrFail($id)->update($validatedData);
 
         return redirect('/resident')->with('success', 'Berhasil Mengubah data');
     }
 
     public function destroy($id)
 {
-    Resident::findOrFail($id)->delete();
+    $resident = Resident::findOrFail($id);
+    $resident->delete();
     return redirect('/resident')->with('success', 'Data dihapus');
 }
 

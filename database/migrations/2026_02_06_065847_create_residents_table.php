@@ -22,8 +22,7 @@ return new class extends Migration
             $table->string('no_hp', 15)->nullable();
             $table->date('tgl_kjgn');
             $table->string('jam_kjgn')->nullable();
-            $table->enum('status', ['menunggu', 'diproses', 'selesai'])
-             ->default('menunggu');
+            $table->enum('status', ['belum_diproses', 'diproses', 'selesai']);
             $table->string('petugas', 100)->nullable();
             $table->text('catatan')->nullable();
             $table->timestamps();
