@@ -1,7 +1,7 @@
- <footer class="sticky-footer bg-white">
+<footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                          <span>Copyright &copy; Maya😝 {{ date('Y') }}</span>
+                        <span>Copyright &copy; Maya😝 {{ date('Y') }}</span>
                     </div>
                 </div>
-            </footer>
+</footer>
