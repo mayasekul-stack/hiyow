@@ -2,12 +2,13 @@
 <html lang="en">
 
 <head>
-
+    <link rel="icon" type="image/png" href="{{ asset('template/img/logosmi.png') }}">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+
 
     <title>Pelayanan Kecamatan</title>
 
@@ -19,7 +20,7 @@
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('template/css/sb-admin-2.min.css') }}" rel="stylesheet">
-
+    
 </head>
 
 <body id="page-top">

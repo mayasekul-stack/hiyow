@@ -39,7 +39,7 @@ class AuthController extends Controller
                 ]);
             }
             
-            return redirect()->intended('dashboard');
+            return redirect()->intended('/dashboard');
         }
 
         return back()->withErrors([
@@ -65,7 +65,7 @@ class AuthController extends Controller
         $user->name = $request->input('name');
         $user->email = $request->input('email');
         $user->password = Hash::make($request->input('password'));
-        $user->role_id = 2;
+        $user->role_id = 1;
         $user->saveOrFail();
 
         return redirect('/')->with('success', 'Berhasil mendaftarkan akun, Menunggu persetujuan admin');

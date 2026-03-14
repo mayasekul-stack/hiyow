@@ -1,5 +1,5 @@
 @extends('layouts.app')
- 
+
 @section('content')
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Daftar Tamu</h1>
@@ -12,7 +12,7 @@
                         <div class="col">
                             <div class="card shadow">
                                 <div class="card-body">
-                                     <table class="table table-responsive table-bordered table-hovered">
+                                    <table class="table table-responsive table-bordered table-hovered">
                                         <thead>
                                             <tr>
                                                         <th>Nama</th>
@@ -32,9 +32,9 @@
                                         @if (count($residents) < 1 ) 
                                             <tbody>
                                                 <tr>
-                                                  <td colspan="12"> 
-                                                    <p class="pt-3 text-center">Tidak Ada Data</p>
-                                                  </td>
+                                                    <td colspan="12"> 
+                                                        <p class="pt-3 text-center">Tidak Ada Data</p>
+                                                    </td>
                                                 </tr>
                                             </tbody>
                                         @else
