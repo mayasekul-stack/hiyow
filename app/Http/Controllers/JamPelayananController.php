@@ -9,8 +9,8 @@ class JamPelayananController extends Controller
 {
     public function index()
     {
-        $jam = JamPelayanan::all();
-        return view('jam.index', compact('jam'));
+        $jam_pelayanans = JamPelayanan::all();
+        return view('jam.index', compact('jam_pelayanans'));
     }
 
     public function create()

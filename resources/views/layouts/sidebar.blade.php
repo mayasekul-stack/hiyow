@@ -31,6 +31,12 @@
                     <i class="fas fa-fw fa-table"></i>
                     <span>Daftar Tamu</span></a>
             </li>
+            <li class="nav-item {{ request()->is('jam*') ? 'active' : ''}}">
+                    <a class="nav-link" href="/jam">
+                        <i class="fas fa-fw fa-table"></i>
+                        <span>Jam Pelayanan</span></a>
+            </li>
+
             <li class="nav-item {{ request()->is('agenda*') ? 'active' : ''}}">
                     <a class="nav-link" href="/agenda">
                         <i class="fas fa-fw fa-table"></i>
