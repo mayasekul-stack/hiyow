@@ -25,6 +25,7 @@
                                                         <th>Tanggal Kunjungan</th>
                                                         <th>Jam Kunjungan</th>
                                                         <th>Petugas</th>
+                                                        <th>Status</th>
                                                         <th>Catatan</th>
                                                         <th>Aksi</th>
                                             </tr>
@@ -32,7 +33,7 @@
                                         @if (count($residents) < 1 ) 
                                             <tbody>
                                                 <tr>
-                                                    <td colspan="12"> 
+                                                    <td colspan="13"> 
                                                         <p class="pt-3 text-center">Tidak Ada Data</p>
                                                     </td>
                                                 </tr>
@@ -51,6 +52,7 @@
                                                             <td>{{ $item->tgl_kjgn }}</td>
                                                             <td>{{ $item->jam_kjgn }}</td>
                                                             <td>{{ $item->petugas }}</td>
+                                                            <td>{{ $item->status }}</td>
                                                             <td>{{ $item->catatan }}</td>
                                                             <td>
                                                                 <div class="d-flex">

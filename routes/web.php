@@ -3,18 +3,14 @@
 use App\Http\Controllers\AgendaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ResidentController;
-use App\Http\Controllers\HomeController;
+
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\JamPelayananController;
 use App\Http\Controllers\PengaduanController;
 
 //jam
-Route::get('/jam', [JamPelayananController::class,'index']);
-Route::get('/jam/create', [JamPelayananController::class,'create']);
-Route::post('/jam/store', [JamPelayananController::class,'store']);
-Route::get('/jam/{id}/edit', [JamPelayananController::class,'edit']);
-Route::put('/jam/{id}/update', [JamPelayananController::class,'update']);
-Route::delete('/jam/{id}/delete', [JamPelayananController::class,'destroy']);
+Route::get('/jam', [JamPelayananController::class, 'index'])->name('jam.index');
+
 
 //pengaduan
 Route::get('pengaduan', [PengaduanController::class, 'index'])->name('pengaduan.index');
@@ -48,4 +44,5 @@ Route::post('/resident', [ResidentController::class, 'store']);
 Route::get('/resident/{id}/edit', [ResidentController::class, 'edit']);
 Route::put('/resident/{id}', [ResidentController::class, 'update']);
 Route::delete('/resident/{id}', [ResidentController::class, 'destroy']);
+
 

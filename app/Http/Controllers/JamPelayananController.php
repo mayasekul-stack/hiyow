@@ -13,37 +13,4 @@ class JamPelayananController extends Controller
         return view('jam.index', compact('jam_pelayanans'));
     }
 
-    public function create()
-    {
-        return view('jam.create');
-    }
-
-    public function store(Request $request)
-    {
-        JamPelayanan::create($request->all());
-
-        return redirect('/jam')->with('success','Jam pelayanan berhasil ditambah');
-    }
-
-    public function edit($id)
-    {
-        $jam = JamPelayanan::findOrFail($id);
-        return view('jam.edit', compact('jam'));
-    }
-
-    public function update(Request $request, $id)
-    {
-        $jam = JamPelayanan::findOrFail($id);
-        $jam->update($request->all());
-
-        return redirect('/jam')->with('success','Jam pelayanan berhasil diupdate');
-    }
-
-    public function destroy($id)
-    {
-        $jam = JamPelayanan::findOrFail($id);
-        $jam->delete();
-
-        return redirect('/jam')->with('success','Jam pelayanan berhasil dihapus');
-    }
 }

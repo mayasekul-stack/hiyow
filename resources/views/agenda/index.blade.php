@@ -2,9 +2,13 @@
 
 @section('content')
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Agenda Kegiatan</h1>
-                        <a href="/agenda/create" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-plus fa-sm text-white-50"></i> Tambah</a> 
+    <h1 class="h3 mb-0 text-gray-800">Agenda Kegiatan</h1>
+                        @if(Auth::check() && Auth::user()->role_id == 1)
+                            <a href="/agenda/create" 
+                                class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                                    <i class="fas fa-plus fa-sm text-white-50"></i> Tambah
+                            </a>
+@endif
                     </div>
 
                     <!-- Table -->
@@ -43,6 +47,7 @@
                                                             <td>{{ $agenda->penanggung_jawab }}</td>
                                                             <td>{{ $agenda->status }}</td>
                                                             <td>
+                                                                @if(auth()->user()->role_id == 1)
                                                                 <div class="d-flex">
                                                                     <a href="/agenda/{{ $agenda->id }}/edit"class="d-inline-block mr-2 btn btn-sm btn-warning">
                                                                         <i class="fas fa-pen"></i>
@@ -52,6 +57,7 @@
                                                                         <i class="fas fa-eraser"></i>
                                                                     </button>
                                                                 </div>
+                                                                @endif
                                                             </td>
                                                         </tr>
                                                         @include('agenda.confirmation-delete')
